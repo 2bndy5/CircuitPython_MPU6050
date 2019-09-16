@@ -54,7 +54,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='adafruit blinka circuitpython micropython mpu6050 6dof accelerometer gyroscope '
+    keywords='adafruit blinka circuitpython mpu6050 6dof accelerometer gyroscope '
              'sensor driver temperature',
 
     # You can just specify the packages manually here if your project is

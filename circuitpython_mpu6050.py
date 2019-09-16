@@ -92,8 +92,8 @@ class MPU6050:
             same I2C bus (SDA & SCL pins) to connect to different I2C devices.
 
     :param int address: The MPU6050's I2C device address. In most cases this is
-    the default of ``0x68``. If your scenario is different, you can specify an
-    alternate address with this parameter.
+        the default of ``0x68``. If your scenario is different, you can specify an
+        alternate address with this parameter.
 
     """
     def __init__(self, i2c, address=0x68):
@@ -144,9 +144,9 @@ class MPU6050:
 
     def read_accel_raw(self):
         """Read the raw accelerometer sensor values and return it as a
-        3-tuple of X, Y, Z axis values that are 16-bit unsigned values.  If you
-        want the acceleration in nice units you probably want to use the
-        accelerometer property!
+            3-tuple of X, Y, Z axis values that are 16-bit unsigned values.  If you
+            want the acceleration in nice units you probably want to use the
+            accelerometer property!
         """
         # Read the accelerometer
         raw_x, raw_y, raw_z = unpack_from('>hhh', self._read_bytes(_ACCEL_XOUT0, 6))
@@ -181,9 +181,9 @@ class MPU6050:
 
     def read_gyro_raw(self):
         """Read the raw gyroscope sensor values and return it as a
-        3-tuple of X, Y, Z axis values that are 16-bit unsigned values.  If you
-        want the gyroscope in nice units you probably want to use the
-        gyroscope property!
+            3-tuple of X, Y, Z axis values that are 16-bit unsigned values.  If you
+            want the gyroscope in nice units you probably want to use the
+            gyroscope property!
         """
         raw_x, raw_y, raw_z = unpack_from('>hhh', self._read_bytes(_GYRO_XOUT0, 6))
         return (raw_x, raw_y, raw_z)
@@ -191,14 +191,14 @@ class MPU6050:
     @property
     def gyro(self):
         """The gyroscope X, Y, Z axis values as a 3-tuple of
-        degrees/second values.
+            degrees/second values.
         """
         return map(lambda data: data / self._gyro_scale_modifier, self.read_gyro_raw())
 
     def read_temp_raw(self):
         """Read the raw temperature sensor value and return it as a 16-bit
-        signed value.  If you want the temperature in nice units you probably
-        want to use the temperature property!
+            signed value.  If you want the temperature in nice units you probably
+            want to use the temperature property!
         """
         raw = self._read_bytes(_TEMP_OUT0, 2)
         return (raw[0] << 8) & raw[1]
@@ -207,7 +207,7 @@ class MPU6050:
     @property
     def temperature(self):
         """The temperature from the onboard temperature sensor of the
-        MPU-6050 in degrees Celcius."""
+            MPU-6050 in degrees Celcius."""
         # Get the actual temperature using the formule given in the
         # MPU-6050 Register Map and Descriptions revision 4.2, page 30
         return (self.read_temp_raw() / 340.0) + 36.53

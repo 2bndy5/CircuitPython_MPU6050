@@ -56,7 +56,7 @@ To install in a virtual environment in your current project:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the examples folder and be included in docs/examples.rst.
+Ensure you've connected the MPU6050 correctly by running the simple test located in the `examples folder of this library <https://github.com/2bndy5/CircuitPython_MPU6050/tree/master/examples>`_. See also the `examples/` section.
 
 Contributing
 ============
