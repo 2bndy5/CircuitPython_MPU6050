@@ -17,12 +17,12 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='adafruit-circuitpython-mpu6050',
+    name='circuitpython-mpu6050',
 
     use_scm_version=True,
     setup_requires=['setuptools_scm'],
 
-    description='A port of the python library for the MPU6050 6 Degrees of Freedom sensor to CircuitPython using the Adafruit_BusDevice library.',
+    description='A port of the popular python library for the MPU6050 6 Degrees of Freedom sensor to CircuitPython using the Adafruit_BusDevice library.',
     long_description=long_description,
     long_description_content_type='text/x-rst',
 
@@ -30,8 +30,8 @@ setup(
     url='https://github.com/adafruit/Adafruit_CircuitPython_MPU6050',
 
     # Author details
-    author='Adafruit Industries',
-    author_email='circuitpython@adafruit.com',
+    author='Brendan Doherty',
+    author_email='2bndy5@gmail.com',
 
     install_requires=[
         'Adafruit-Blinka',

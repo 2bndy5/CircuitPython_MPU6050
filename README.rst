@@ -5,10 +5,6 @@ Introduction
     :target: https://circuitpython.readthedocs.io/projects/mpu6050/en/latest/
     :alt: Documentation Status
 
-.. image:: https://img.shields.io/discord/327254708534116352.svg
-    :target: https://discord.gg/nBQh6qu
-    :alt: Discord
-
 .. image:: https://travis-ci.com/2bndy5/Circuitpython_CircuitPython_MPU6050.svg?branch=master
     :target: https://travis-ci.com/2bndy5/Circuitpython_CircuitPython_MPU6050
     :alt: Build Status
@@ -40,13 +36,13 @@ PyPI <https://pypi.org/project/adafruit-circuitpython-mpu6050/>`_. To install fo
 
 .. code-block:: shell
 
-    pip3 install adafruit-circuitpython-mpu6050
+    pip3 install circuitpython-mpu6050
 
 To install system-wide (this may be required in some cases):
 
 .. code-block:: shell
 
-    sudo pip3 install adafruit-circuitpython-mpu6050
+    sudo pip3 install circuitpython-mpu6050
 
 To install in a virtual environment in your current project:
 
@@ -55,7 +51,7 @@ To install in a virtual environment in your current project:
     mkdir project-name && cd project-name
     python3 -m venv .env
     source .env/bin/activate
-    pip3 install adafruit-circuitpython-mpu6050
+    pip3 install circuitpython-mpu6050
 
 Usage Example
 =============
