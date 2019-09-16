@@ -26,12 +26,12 @@ circuitpython_mpu6050
 =====================
 
 The original code from `Tijndagamer's mpu6050 python module
-    <https://github.com/Tijndagamer/mpu6050.git>`_ was ported to use the
-    adafruit-circuitpython-busdevice library.
+<https://github.com/Tijndagamer/mpu6050.git>`_ was ported to use the
+adafruit-circuitpython-busdevice library.
 
 Authors: `Dr David Martin <https://github.com/davidmam>`_,
-    `Martijn <https://github.com/Tijndagamer>`_,
-    `Brendan Doherty <https://github.com/2bndy5>`_
+`Martijn <https://github.com/Tijndagamer>`_,
+`Brendan Doherty <https://github.com/2bndy5>`_
 
 modified by `Brendan Doherty <https://github.com/2bndy5>`_
 
