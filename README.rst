@@ -26,6 +26,16 @@ This is easily achieved by downloading
 Installing from PyPI
 =====================
 
+.. important:: This library hasn't been deployed (correctly) to pypi.org yet. Please use the following commands in the meantime:
+
+    .. code-block:: shell
+
+        git clone https://github.com/2bndy5/CircuitPython_MPU6050.git
+        cd CircuitPython_MPU6050
+        python3 setup.py install
+
+    Some cases may require prefixing the last command with ``sudo``.
+
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/adafruit-circuitpython-mpu6050/>`_. To install for current user:
 
