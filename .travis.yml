@@ -16,10 +16,12 @@ deploy:
     overwrite: true
     on:
       tags: true
+  # TODO: Use 'travis encrypt your-password-here' to generate
+  #       the encrypted password for your account. Paste result below.
   - provider: pypi
     user: 2bndy5
     password:
-      secure: Q/HdqiQDJ5eMMtL+717MpyiPZQpBaa1qRRGiWRE8c9f1Q7Fh345atHjrDUbMU7tl8GJHvBpf239vcrYB6W9/3qumRmZWv2ZeI0KZVTQSUL4289vAbdp3rbUFIFYpV/HVjD8l9P8iwINdB4JS4OIHP9Vd33rQ1+QCKJ2xh1LWYOlGnZL7UqisLtNRO8cv5RDNnH6lcugHSIAzdvJ90otOqlBe43RxQR0T+CZ+vwMyFhWtaYpkHFflZx0GOvSZbz3o13+DWrBd5puFLPj9DqDVHuxjSyZu2nQRN7mC2irre9FDIcOFLFoauGji3NUO591ppoE+++7iBSUNAnaU/aSANL411sF94oWkM0f5oxIyajJB6zX8lJyIPtjP+wRnRJ9+lkxN0JCT+TDF1CJlZ3Mf7Y0ss92voCTD/ce3MasTp4P89ZEUf1ofnAS7q+LDuXtrmu0GWlxIN1OiDikRomIH5Pcvm5WPQeBOJXQaIkjzHlK5T9WqK1giAZtcAkMdshLRxn44hEaph52Vk+T17Py6H5Q0dAeMgA5a2dFLk5s2XwVeV1+4Dv+CGY/z2MbQ5nUyHYCGeWOuTnsaDvRb5yWNGiofM82L14kz7Cu/4PseHQBxijEVNRkZeGm7+dIf4IcvoXfIQ1WURE4DpHJywa3YiPvjj9r/nWPgOF+lYgPz+8A=
+      secure: "Qx5GO0uQBf1bhSX7xjsTsfjcrhE3HOpOiCT1bJQpBswblPTftUfmb3IYSJ9d1luR4bSwyCW/Gq7JhPWdnisK4tPyk5oRwn8MopePhf2p7CbkBD8uf5V5+sWS1+LF4pPy1CMuZqEqe6brJ3YC80dRnHlLx5bObCKjokemS/m5tYbU7yVhGm9FiI/SDjSre6X/j4AbaW8Kcs41BTu5wZpVwZs54oN3vKqOYs46rSxu92D4P9IAVIl7hytlUzghcJ1UCUXPJEWYRbxDMuUTi8LsVjDLACb44yesVbnpI/vfw8e2rplz9qjxl3eIFUJVWkKyHVv8r+/Psflz+yT4dRNTWE/B5ajw5GMZq65LgLUd1GDVOcp+0qj9w/+bQO3Y29oFE6GUJGhVljUQ0OJJsHZjMBHBlfjXY/NsPn3l8iT95fkCI86pX67IPtFaTsrg+Ti8JV0n3x5ReB/u2Gg5nq9W2+rRMH7QUvpmb2VW33IJ2hOcZOfC0bwd6p78VugonyjXm+LwkiUgxn3Z3TpjUCZX9QzVeXqSE33RZDpkbsX3fFXyTKjmKxGNCy1Wq5pPcMBsfiKRg+yqy+zEe+6ujwcnmL4VMp2YJ2lO6m4S98ziD06RO7sYg1bb17XQmKn3neX1PBl39AFM7GttklyfFeHUg1paKu3ztimK7Ro3UTkAAAM="
     on:
       tags: true
       condition: $DEPLOY_PYPI = "true"
