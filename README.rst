@@ -5,8 +5,8 @@ Introduction
     :target: https://circuitpython-mpu6050.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://api.travis-ci.com/2bndy5/CircuitPython_MPU6050.svg?branch=master
-    :target: https://travis-ci.com/2bndy5/CircuitPython_MPU6050
+.. image:: https://travis-ci.org/2bndy5/CircuitPython_MPU6050.svg?branch=master
+    :target: https://travis-ci.org/2bndy5/CircuitPython_MPU6050
     :alt: Build Status
 
 A port of `the python library for the MPU6050 <https://github.com/Tijndagamer/mpu6050.git>`_ 6 Degrees of Freedom sensor to CircuitPython using the Adafruit_BusDevice library.
