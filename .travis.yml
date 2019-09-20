@@ -6,6 +6,7 @@ cache:
   pip: true
 env:
 - DEPLOY_PYPI="true"
+
 deploy:
   - provider: releases
     api_key: "$GITHUB_TOKEN"
