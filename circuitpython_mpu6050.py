@@ -150,7 +150,7 @@ class MPU6050:
         """
         # Read the accelerometer
         raw_x, raw_y, raw_z = unpack_from('>hhh', self._read_bytes(_ACCEL_XOUT0, 6))
-        return (raw_x, raw_y, raw_z)
+        return (_twos_comp(raw_x, 16), _twos_comp(raw_y, 16), _twos_comp(raw_z, 16))
 
     @property
     def acceleration(self):
@@ -187,7 +187,7 @@ class MPU6050:
             gyroscope property!
         """
         raw_x, raw_y, raw_z = unpack_from('>hhh', self._read_bytes(_GYRO_XOUT0, 6))
-        return (raw_x, raw_y, raw_z)
+        return (_twos_comp(raw_x, 16), _twos_comp(raw_y, 16), _twos_comp(raw_z, 16))
 
     @property
     def gyro(self):
@@ -202,7 +202,7 @@ class MPU6050:
             want to use the temperature property!
         """
         raw = self._read_bytes(_TEMP_OUT0, 2)
-        return (raw[0] << 8) & raw[1]
+        return _twos_comp((raw[0] << 8) & raw[1], 16)
 
 
     @property
