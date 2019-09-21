@@ -202,7 +202,7 @@ class MPU6050:
             want to use the temperature property!
         """
         raw = self._read_bytes(_TEMP_OUT0, 2)
-        return _twos_comp((raw[0] << 8) & raw[1], 16)
+        return _twos_comp((raw[0] << 8) | raw[1], 16)
 
 
     @property
