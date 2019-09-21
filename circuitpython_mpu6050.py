@@ -116,7 +116,7 @@ class MPU6050:
         Set count to the number of bytes you want to read."""
         buf = bytearray([reg]) # first byte is the register address
         for _ in range(count):
-            buf += '\x00' # pad out buffer to length of desired bytes
+            buf += b'\x00' # pad out buffer to length of desired bytes
         with self._i2c as i2c:
             i2c.write_then_readinto(buf, buf, out_end=1, in_start=1, in_end=count + 1)
         return buf[1:] # return only what was read
