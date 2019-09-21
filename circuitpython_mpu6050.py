@@ -177,7 +177,8 @@ class MPU6050:
                 self._gyro_scale_modifier = GYRO_SCALE_MODIFIER_1000DEG
             elif g_range == GYRO_RANGE_2000DEG:
                 self._gyro_scale_modifier = GYRO_SCALE_MODIFIER_2000DEG
-        raise ValueError('Specified Gyroscope scale is undefined')
+        else:
+            raise ValueError('Specified Gyroscope scale is undefined')
 
     def read_gyro_raw(self):
         """Read the raw gyroscope sensor values and return it as a
