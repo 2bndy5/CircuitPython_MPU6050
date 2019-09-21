@@ -107,9 +107,8 @@ class MPU6050:
 
     def _write_byte(self, reg, value):
         """only writes 1 byte of data"""
-        if value & 0xFF: # ensure it is a single byte
-            with self._i2c as i2c: # grab lock on bus
-                i2c.write(bytes([reg, value]), stop=False)
+        with self._i2c as i2c: # grab lock on bus
+            i2c.write(bytes([reg, value]))
 
     def _read_bytes(self, reg, count=1):
         """ count=1 means this function will only read and return 1 byte.
