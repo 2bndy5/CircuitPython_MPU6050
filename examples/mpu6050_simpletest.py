@@ -14,8 +14,8 @@ while True:
         TEMP = IMU_SENSOR.temperature
         GYRO = IMU_SENSOR.gyro
         print('temp =', TEMP)
-        print('accel =', ACCEL)
-        print('gyro =', GYRO)
+        print('accel =', repr(ACCEL))
+        print('gyro =', repr(GYRO))
         time.sleep(2)
     except KeyboardInterrupt:
         del IMU_SENSOR
