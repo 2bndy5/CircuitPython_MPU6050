@@ -16,15 +16,7 @@ deploy:
     overwrite: true
     on:
       tags: true
-  # TODO: Use 'travis encrypt your-password-here' to generate
-  #       the encrypted password for your account. Paste result below.
-  - provider: pypi
-    user: 2bndy5
-    password:
-      secure: "Qx5GO0uQBf1bhSX7xjsTsfjcrhE3HOpOiCT1bJQpBswblPTftUfmb3IYSJ9d1luR4bSwyCW/Gq7JhPWdnisK4tPyk5oRwn8MopePhf2p7CbkBD8uf5V5+sWS1+LF4pPy1CMuZqEqe6brJ3YC80dRnHlLx5bObCKjokemS/m5tYbU7yVhGm9FiI/SDjSre6X/j4AbaW8Kcs41BTu5wZpVwZs54oN3vKqOYs46rSxu92D4P9IAVIl7hytlUzghcJ1UCUXPJEWYRbxDMuUTi8LsVjDLACb44yesVbnpI/vfw8e2rplz9qjxl3eIFUJVWkKyHVv8r+/Psflz+yT4dRNTWE/B5ajw5GMZq65LgLUd1GDVOcp+0qj9w/+bQO3Y29oFE6GUJGhVljUQ0OJJsHZjMBHBlfjXY/NsPn3l8iT95fkCI86pX67IPtFaTsrg+Ti8JV0n3x5ReB/u2Gg5nq9W2+rRMH7QUvpmb2VW33IJ2hOcZOfC0bwd6p78VugonyjXm+LwkiUgxn3Z3TpjUCZX9QzVeXqSE33RZDpkbsX3fFXyTKjmKxGNCy1Wq5pPcMBsfiKRg+yqy+zEe+6ujwcnmL4VMp2YJ2lO6m4S98ziD06RO7sYg1bb17XQmKn3neX1PBl39AFM7GttklyfFeHUg1paKu3ztimK7Ro3UTkAAAM="
-    on:
-      tags: true
-      condition: $DEPLOY_PYPI = "true"
+
 install:
 - pip install -r requirements.txt
 - pip install circuitpython-build-tools Sphinx sphinx-rtd-theme

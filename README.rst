@@ -11,7 +11,6 @@ Introduction
 
 A port of `the python library for the MPU6050 <https://github.com/Tijndagamer/mpu6050.git>`_ 6 Degrees of Freedom sensor to CircuitPython using the Adafruit_BusDevice library.
 
-
 Dependencies
 =============
 This driver depends on:
@@ -23,40 +22,17 @@ Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
 `the Adafruit library and driver bundle <https://github.com/adafruit/Adafruit_CircuitPython_Bundle>`_.
 
-Installing from PyPI
+How to Install
 =====================
-
-.. important:: This library hasn't been deployed (correctly) to pypi.org yet. Please use the following commands in the meantime:
-
-    .. code-block:: shell
-
-        git clone https://github.com/2bndy5/CircuitPython_MPU6050.git
-        cd CircuitPython_MPU6050
-        python3 setup.py install
-
-    Some cases may require prefixing the last command with ``sudo``.
-
-On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
-PyPI <https://pypi.org/project/adafruit-circuitpython-mpu6050/>`_. To install for current user:
+This library isn't getting deployed to pypi.org as `adadruit has a created a library <https://pypi.org/project/adafruit-circuitpython-mpu6050/>`_ unbeknownst to me while I was developing this library. Use the following commands to install this library:
 
 .. code-block:: shell
 
-    pip3 install circuitpython-mpu6050
+    git clone https://github.com/2bndy5/CircuitPython_MPU6050.git
+    cd CircuitPython_MPU6050
+    python3 setup.py install
 
-To install system-wide (this may be required in some cases):
-
-.. code-block:: shell
-
-    sudo pip3 install circuitpython-mpu6050
-
-To install in a virtual environment in your current project:
-
-.. code-block:: shell
-
-    mkdir project-name && cd project-name
-    python3 -m venv .env
-    source .env/bin/activate
-    pip3 install circuitpython-mpu6050
+To install globally, prefix the last command with ``sudo``.
 
 Usage Example
 =============
