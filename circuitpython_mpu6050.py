@@ -38,43 +38,42 @@ modified by `Brendan Doherty <https://github.com/2bndy5>`_
 """
 from struct import unpack_from
 from adafruit_bus_device.i2c_device import I2CDevice
-# pylint: disable=bad-whitespace
 
 # Global Variables
 _GRAVITY = 9.80665
 
 # Scale Modifiers
-ACCEL_SCALE_MODIFIER_2G  = 16384.0
-ACCEL_SCALE_MODIFIER_4G  = 8192.0
-ACCEL_SCALE_MODIFIER_8G  = 4096.0
+ACCEL_SCALE_MODIFIER_2G = 16384.0
+ACCEL_SCALE_MODIFIER_4G = 8192.0
+ACCEL_SCALE_MODIFIER_8G = 4096.0
 ACCEL_SCALE_MODIFIER_16G = 2048.0
 
-GYRO_SCALE_MODIFIER_250DEG  = 131.0
-GYRO_SCALE_MODIFIER_500DEG  = 65.5
+GYRO_SCALE_MODIFIER_250DEG = 131.0
+GYRO_SCALE_MODIFIER_500DEG = 65.5
 GYRO_SCALE_MODIFIER_1000DEG = 32.8
 GYRO_SCALE_MODIFIER_2000DEG = 16.4
 
 # Pre-defined ranges
-ACCEL_RANGE_2G  = 0x00
-ACCEL_RANGE_4G  = 0x08
-ACCEL_RANGE_8G  = 0x10
+ACCEL_RANGE_2G = 0x00
+ACCEL_RANGE_4G = 0x08
+ACCEL_RANGE_8G = 0x10
 ACCEL_RANGE_16G = 0x18
 
-GYRO_RANGE_250DEG  = 0x00
-GYRO_RANGE_500DEG  = 0x08
+GYRO_RANGE_250DEG = 0x00
+GYRO_RANGE_500DEG = 0x08
 GYRO_RANGE_1000DEG = 0x10
 GYRO_RANGE_2000DEG = 0x18
 
 # MPU-6050 Registers
-_PWR_MGMT_1   = 0x6B
+_PWR_MGMT_1 = 0x6B
 
-_ACCEL_XOUT0  = 0x3B
-_TEMP_OUT0    = 0x41
-_GYRO_XOUT0   = 0x43
+_ACCEL_XOUT0 = 0x3B
+_TEMP_OUT0 = 0x41
+_GYRO_XOUT0 = 0x43
 
 _ACCEL_CONFIG = 0x1C
-_GYRO_CONFIG  = 0x1B
-# pylint: enable=bad-whitespace
+_GYRO_CONFIG = 0x1B
+
 
 def _twos_comp(val, bits):
     # Convert an unsigned integer in 2's compliment form of the specified bit
@@ -82,6 +81,7 @@ def _twos_comp(val, bits):
     if val & (1 << (bits - 1)) != 0:
         return val - (1 << bits)
     return val
+
 
 class MPU6050:
     """A driver class for the MPU6050 6 DoF (Degrees of Freedom) sensor.
@@ -95,6 +95,7 @@ class MPU6050:
         the default of ``0x68``. If your scenario is different, you can specify an
         alternate address with this parameter.
     """
+
     def __init__(self, i2c, address=0x68):
         self._i2c = I2CDevice(i2c, address)
         # Wake up the MPU-6050 since it starts in sleep mode
@@ -106,18 +107,19 @@ class MPU6050:
 
     def _write_byte(self, reg, value):
         """only writes 1 byte of data"""
-        with self._i2c as i2c: # grab lock on bus
+        with self._i2c as i2c:  # grab lock on bus
             i2c.write(bytes([reg, value]))
 
     def _read_bytes(self, reg, count=1):
         """count=1 means this function will only read and return 1 byte.
         Set count to the number of bytes you want to read."""
-        buf = bytearray([reg]) # first byte is the register address
+        buf = bytearray([reg])  # first byte is the register address
         for _ in range(count):
-            buf += b'\x00' # pad out buffer to length of desired bytes
+            buf += b'\x00'  # pad out buffer to length of desired bytes
         with self._i2c as i2c:
-            i2c.write_then_readinto(buf, buf, out_end=1, in_start=1, in_end=count + 1)
-        return buf[1:] # return only what was read
+            i2c.write_then_readinto(
+                buf, buf, out_end=1, in_start=1, in_end=count + 1)
+        return buf[1:]  # return only what was read
 
     @property
     def accel_range(self):
@@ -142,13 +144,15 @@ class MPU6050:
 
     def _read_accel_raw(self):
         # Read the accelerometer
-        raw_x, raw_y, raw_z = unpack_from('>hhh', self._read_bytes(_ACCEL_XOUT0, 6))
+        raw_x, raw_y, raw_z = unpack_from(
+            '>hhh', self._read_bytes(_ACCEL_XOUT0, 6))
         return (_twos_comp(raw_x, 16), _twos_comp(raw_y, 16), _twos_comp(raw_z, 16))
 
     @property
     def acceleration(self):
         """The accelerometer X, Y, Z axis values as a 3-tuple of m/s^2 values."""
-        return map(lambda data: data / self._accel_scale_modifier * _GRAVITY, self._read_accel_raw())
+        return map(lambda data: data / self._accel_scale_modifier *
+                   _GRAVITY, self._read_accel_raw())
 
     @property
     def gyro_scale(self):
@@ -173,7 +177,8 @@ class MPU6050:
             raise ValueError('Specified Gyroscope scale is undefined')
 
     def _read_gyro_raw(self):
-        raw_x, raw_y, raw_z = unpack_from('>hhh', self._read_bytes(_GYRO_XOUT0, 6))
+        raw_x, raw_y, raw_z = unpack_from(
+            '>hhh', self._read_bytes(_GYRO_XOUT0, 6))
         return (_twos_comp(raw_x, 16), _twos_comp(raw_y, 16), _twos_comp(raw_z, 16))
 
     @property
@@ -184,7 +189,6 @@ class MPU6050:
     def _read_temp_raw(self):
         raw = self._read_bytes(_TEMP_OUT0, 2)
         return _twos_comp((raw[0] << 8) | raw[1], 16)
-
 
     @property
     def temperature(self):
